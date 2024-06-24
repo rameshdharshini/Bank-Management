@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Accounts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>All Accounts</h1>
+    <table>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Holder Name</th>
+            <th>Account Type</th>
+            <th>Balance</th>
+        </tr>
+        {% for account in accounts %}
+        <tr>
+            <td>{{ account.accNo }}</td>
+            <td>{{ account.name }}</td>
+            <td>{{ account.type }}</td>
+            <td>{{ account.deposit }}</td>
+            <td><a href="{{ url_for('account', accNo=account.accNo) }}">View</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
